@@ -20,7 +20,6 @@ Widget::Widget(QWidget *parent)
     ship.x = ship.y = 100;
     ship.angel = 45;
     ship.speed = 2;
-    fonImg = QPixmap("fon.jpg");
 
     QTimer* timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(myUpdate()));
@@ -34,7 +33,6 @@ Widget::Widget(QWidget *parent)
 void Widget::paintEvent(QPaintEvent *e){
     ship.move();
     QPainter p(this);
-    p.drawPixmap(0,0,fonImg);
     p.setBrush(QColor(200,150,50));
 
     qWarning() << bullet.size();
@@ -56,7 +54,7 @@ void Widget::keyPressEvent(QKeyEvent *e){
 
     if(e->key() == Qt::Key_W){
         ship.speed += 0.1;
-        ship.fire();
+        ship.fire(); // DONT WORK!
     }
 
     if(e->key() == Qt::Key_D){
@@ -71,7 +69,7 @@ void Widget::keyPressEvent(QKeyEvent *e){
     }
 
     if(e->key() == Qt::Key_Space){
-        ship.fire();
+        ship.fire(); // DONT WORK!
         //qWarning() << 5;
     }
 }
@@ -84,35 +82,3 @@ void Widget::myUpdate(){
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
