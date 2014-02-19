@@ -63,7 +63,6 @@ public:
     void paintEvent(QPaintEvent *e);
     void keyPressEvent(QKeyEvent *);
     Ship ship;
-    QPixmap fonImg;
 
 public slots:
     void myUpdate();
